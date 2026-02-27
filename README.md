@@ -1,5 +1,9 @@
 # Temizİz
 
+<div align="center">
+  <img src="images/logo.png" alt="Temizİz Logo" width="200"/>
+</div>
+
 Kullanıcıların çevre kirliliği olan yerleri fotoğraflayıp, temizledikten sonraki hallerini yükleyerek puan kazandıkları, doğa temizliğini teşvik eden oyunlaştırılmış bir sosyal sorumluluk platformudur.
 
 **Proje Kategorisi:** Sosyal Sorumluluk, Çevre, Oyunlaştırma, Web Uygulaması  
