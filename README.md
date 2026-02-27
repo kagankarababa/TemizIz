@@ -12,7 +12,8 @@ Kullanıcıların çevre kirliliği olan yerleri fotoğraflayıp, temizledikten 
 * Tuğçe Ak
 
 ## Proje Dokümanları
-* [Gereksinim Analizi](gereksinim_analizi.md)
+* [Ahmet Kağan Karababa - Gereksinim Analizi](Ahmet-Kagan-Karababa/Ahmet-Kagan-Karababa-Gereksinimler.md)
+* [Tuğçe Ak - Gereksinim Analizi](Tugce-Ak/Tugce-Ak-Gereksinimler.md)
 * [Durum Diyagramı](#) *(İleriki ödevlerde eklenecek)*
 * [Durum Senaryoları](#) *(İleriki ödevlerde eklenecek)*
 * [Front-End](#) *(İleriki ödevlerde eklenecek)*
