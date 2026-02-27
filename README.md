@@ -2,23 +2,36 @@
 
 <div align="center">
   <img src="images/logo.png" alt="Temizİz Logo" width="200"/>
+  <h1>Temizİz - Doğayı Koru, İzini Temiz Bırak</h1>
 </div>
 
-Kullanıcıların çevre kirliliği olan yerleri fotoğraflayıp, temizledikten sonraki hallerini yükleyerek puan kazandıkları, doğa temizliğini teşvik eden oyunlaştırılmış bir sosyal sorumluluk platformudur.
+---
 
-**Proje Kategorisi:** Sosyal Sorumluluk, Çevre, Oyunlaştırma, Web Uygulaması  
-**Referans Uygulama:** -  
-**Uygulama Adresi:** -  
-**Grup Adı:** Nature Lovers
+## 🌍 Proje Hakkında
+**Temizİz**, doğa severleri ve çevre bilincine sahip bireyleri bir araya getiren interaktif bir çevre temizliği ve farkındalık platformudur. Kullanıcılar doğada karşılaştıkları kirli alanları harita üzerinde bildirerek diğer kullanıcıların görmesini sağlar, temizlik görevleri oluşturur ve temizlenen alanların öncesi/sonrası fotoğraflarını paylaşarak puan kazanırlar. Amacımız, teknolojiyi kullanarak daha temiz bir dünya için topluluk bilinci oluşturmaktır.
 
-**Proje Ekibi:**
-* Ahmet Kağan Karababa  
-* Tuğçe Ak
+<div align="center">
+  <img src="images/ekran-goruntusu.png" alt="Temizİz Web Sitesi" width="800"/>
+</div>
 
-## Proje Dokümanları
-* [Ahmet Kağan Karababa - Gereksinim Analizi](Ahmet-Kagan-Karababa/Ahmet-Kagan-Karababa-Gereksinimler.md)
-* [Tuğçe Ak - Gereksinim Analizi](Tugce-Ak/Tugce-Ak-Gereksinimler.md)
-* [Durum Diyagramı](#) *(İleriki ödevlerde eklenecek)*
-* [Durum Senaryoları](#) *(İleriki ödevlerde eklenecek)*
-* [Front-End](#) *(İleriki ödevlerde eklenecek)*
-* [Back-End](#) *(İleriki ödevlerde eklenecek)*
+## 🚀 Temel Özellikler
+* **Kirlilik Bildirimi:** Doğadaki kirli alanları fotoğraflı ve konumlu olarak sisteme ekleme.
+* **Temizlik Kanıtı:** Temizlenen alanların son halini yükleyerek görev tamamlama.
+* **Oyunlaştırma (Gamification):** Temizlik yaptıkça puan kazanma ve liderlik tablosunda yükselme.
+* **Topluluk Etkileşimi:** Temizlenen alanlara yorum yapma ve tebrik mesajları bırakma.
+
+## 🛠️ Kullanılan Teknolojiler
+* **Front-End:** HTML, CSS, JavaScript (React)
+* **Back-End:** Node.js, Express
+* **Veritabanı:** MongoDB / PostgreSQL
+
+## 📄 Proje Dokümanları
+Projemizin detaylı gereksinim analizine, API metotlarına ve görev dağılımlarına aşağıdaki bağlantıdan ulaşabilirsiniz:
+
+* 🔗 **[Gereksinim Analizi ve API Raporu](Gereksinim-Analizi.md)**
+
+## 👥 Takım Üyeleri
+Bu proje aşağıdaki takım üyeleri tarafından geliştirilmektedir:
+* **Ahmet Kağan Karababa** - [GitHub Profili](https://github.com/kagankarababa)
+* **Tuğçe Ak**
+
