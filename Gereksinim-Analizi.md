@@ -74,5 +74,7 @@ Tüm gereksinimler çıkarılmış, takım üyeleri arasında tartışılmış v
 
 ## Gereksinim Dağılımları
 
-* [Ahmet Kağan Karababa'nın Gereksinimleri](../Ahmet-Kagan-Karababa/Ahmet-Kagan-Karababa-Gereksinimler.md)
-* [Tuğçe Ak'ın Gereksinimleri](../Tugce-Ak/Tugce-Ak-Gereksinimler.md)
+## Gereksinim Dağılımları
+
+* [Ahmet Kağan Karababa'nın Gereksinimleri](Ahmet-Kagan-Karababa/Ahmet-Kagan-Karababa-Gereksinimler.md)
+* [Tuğçe Ak'ın Gereksinimleri](Tugce-Ak/Tugce-Ak-Gereksinimler.md)
