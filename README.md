@@ -1,17 +1,14 @@
 # Temizİz
-
 <div align="center">
   <h1>Temizİz - Doğayı Koru, İzini Temiz Bırak</h1>
   <br>
-  <img src="images/logo.png" alt="Temizİz Ana Görsel" width="800"/>
+  <img src="images/tanitim.png" alt="Temizİz Proje Tanıtım Görseli" width="800"/>
 </div>
 
 ---
 
 ## 🌍 Proje Hakkında
 **Temizİz**, doğa severleri ve çevre bilincine sahip bireyleri bir araya getiren interaktif bir çevre temizliği ve farkındalık platformudur. Kullanıcılar doğada karşılaştıkları kirli alanları harita üzerinde bildirerek diğer kullanıcıların görmesini sağlar, temizlik görevleri oluşturur ve temizlenen alanların öncesi/sonrası fotoğraflarını paylaşarak puan kazanırlar. Amacımız, teknolojiyi kullanarak daha temiz bir dünya için topluluk bilinci oluşturmaktır.
-
-> *Not: Projemizin web arayüzüne ait ekran görüntüleri geliştirme süreci tamamlandıkça buraya eklenecektir.*
 
 ## 🚀 Temel Özellikler
 * **Kirlilik Bildirimi:** Doğadaki kirli alanları fotoğraflı ve konumlu olarak sisteme ekleme.
@@ -34,3 +31,5 @@ Bu proje aşağıdaki takım üyeleri tarafından geliştirilmektedir:
 * **Ahmet Kağan Karababa** - [GitHub Profili](https://github.com/kagankarababa)
 * **Tuğçe Ak**
 
+---
+*Bu proje Yazılım Mühendisliği dersi kapsamında geliştirilmektedir.*
