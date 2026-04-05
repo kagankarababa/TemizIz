@@ -21,8 +21,19 @@ const app = express();
 app.use(cors());
 app.use(express.json());
 
-// MongoDB bağlantısı
-connectDB();
+// MongoDB bağlantısı için middleware (Serverless uyumlu)
+app.use(async (req, res, next) => {
+  try {
+    await connectDB();
+    next();
+  } catch (error) {
+    console.error('Veritabanı bağlantı hatası:', error.message);
+    res.status(500).json({ 
+      message: 'Veritabanı bağlantısı kurulamadı.', 
+      error: error.message 
+    });
+  }
+});
 
 // Ana route
 app.get('/', (req, res) => {
