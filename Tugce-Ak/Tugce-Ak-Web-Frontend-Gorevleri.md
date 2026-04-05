@@ -1,5 +1,7 @@
 # Tuğçe Ak'ın Web Frontend Görevleri
 
+Front-End test videosu: https://www.youtube.com/watch?v=0dBW4U1vEg4
+
 ## 1. Ana Sayfa / Keşfet Akışı
 * **Dosya:** `frontend/src/pages/Home.jsx`
 * **Açıklama:** Instagram keşfet benzeri gönderi akışını sağlayan ana sayfa.
