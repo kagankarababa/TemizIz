@@ -1,6 +1,6 @@
 # REST API Görev Dağılımı
 
-REST API Adresi: `http://localhost:3000/v1` (Deploy sonrası güncellenecek)
+REST API Adresi: https://temiz-iz.vercel.app/
 
 Bu dokümanda, proje ekibindeki her üyenin geliştirmekten sorumlu olduğu REST API metotları listelenmektedir.
 
