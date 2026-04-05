@@ -1,6 +1,5 @@
 require('dotenv').config();
 const express = require('express');
-const cors = require('cors');
 const connectDB = require('../config/db');
 
 // Route imports
@@ -17,17 +16,22 @@ const likeRoutes = require('../routes/likeRoutes');
 
 const app = express();
 
-// CORS Middleware - EN ÜSTTE olmalı
-app.use(cors({
-  origin: '*',
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
-  allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept'],
-  credentials: false
-}));
-
-// Preflight (OPTIONS) isteklerini hemen cevapla - DB bağlantısına gerek yok
-app.options('*', (req, res) => {
-  res.status(200).end();
+// ============================================
+// CORS - Manuel header ekleme (Vercel uyumlu)
+// Her response'a CORS header'ları ekle
+// ============================================
+app.use((req, res, next) => {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS, PATCH');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type, Authorization, X-Requested-With, Accept');
+  res.setHeader('Access-Control-Max-Age', '86400');
+  
+  // OPTIONS preflight isteği ise hemen cevapla, DB'ye gitme
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+  
+  next();
 });
 
 app.use(express.json());
@@ -106,3 +110,4 @@ if (process.env.NODE_ENV !== 'production') {
 }
 
 module.exports = app;
+
