@@ -1,12 +1,33 @@
-# Ahmet Kağan Karababa - Gereksinim Analizi
+# Ahmet Kağan Karababa'nın Gereksinimleri
 
-Temizİz projesi kapsamında benim sorumluluğumda olan 8 adet fonksiyonel gereksinim aşağıdadır:
+## 1. Kullanıcı Kayıt Olma
+* **API Metodu:** POST /auth/register
+* **Açıklama:** Sisteme yeni katılmak isteyen kullanıcıların ad, soyad ve e-posta bilgileriyle hesap oluşturmasını sağlar.
 
-1. **Kullanıcı Kayıt Olma (Ekle/POST):** Sisteme yeni katılmak isteyen kişilerin ad, soyad ve e-posta bilgileriyle hesap oluşturması.
-2. **Profil Bilgilerini Görüntüleme (Listele/GET):** Kullanıcının kendi profilindeki puanını ve geçmişte temizlediği alanları görmesi.
-3. **Profil Bilgilerini Güncelleme (Güncelle/PUT):** Kullanıcının şifre veya profil fotoğrafı gibi kişisel bilgilerini değiştirmesi.
-4. **Hesap Silme (Sil/DELETE):** Sistemi kullanmak istemeyen kullanıcının kendi hesabını kalıcı olarak kapatması.
-5. **Kirli Alan Bildirme (Ekle/POST):** Kullanıcının doğada gördüğü kirli bir alanın fotoğrafını sisteme yükleyerek bildirmesi.
-6. **Bildirilen Alanı Güncelleme (Güncelle/PUT):** Kullanıcının yanlış girdiği bir kirli alan konumunu veya açıklamasını sonradan düzeltmesi.
-7. **Liderlik Tablosunu Listeleme (Listele/GET):** En çok çevre temizliği yapıp en yüksek puanı toplayan kullanıcıların sıralı bir şekilde görülmesi.
-8. **Uygunsuz İçeriği Şikayet Etme (Ekle/POST):** Kullanıcının, platforma yüklenen ve doğa temizliği ile alakası olmayan sahte veya uygunsuz fotoğrafları sistem yöneticilerine bildirmesi.
+## 2. Kullanıcı Giriş Yapma
+* **API Metodu:** POST /auth/login
+* **Açıklama:** Kayıtlı kullanıcıların e-posta ve şifreleriyle sisteme giriş yaparak oturum açmasını sağlar.
+
+## 3. Profil Bilgilerini Görüntüleme
+* **API Metodu:** GET /profile
+* **Açıklama:** Kullanıcının kendi profilindeki toplam beğenisini ve geçmişte paylaştığı temizlik gönderilerini görmesini sağlar.
+
+## 4. Profil Bilgilerini Güncelleme
+* **API Metodu:** PUT /profile
+* **Açıklama:** Kullanıcının ad, e-posta veya şifre gibi kişisel bilgilerini değiştirmesini sağlar.
+
+## 5. Hesap Silme
+* **API Metodu:** DELETE /profile
+* **Açıklama:** Kullanıcının sistemdeki tüm verilerini ve hesabını kalıcı olarak silmesini sağlar.
+
+## 6. Gönderi Düzenleme
+* **API Metodu:** PUT /pollution-reports/:id
+* **Açıklama:** Kullanıcının daha önce paylaştığı bir gönderinin açıklamasını, konum adını veya fotoğrafını sonradan düzeltmesini sağlar.
+
+## 7. Profil Fotoğrafı Olarak Avatar Seçme
+* **API Metodu:** PUT /profile
+* **Açıklama:** Kullanıcının emoji tabanlı avatarlar arasından birini seçerek profil fotoğrafı olarak ayarlamasını sağlar.
+
+## 8. Liderlik Tablosunu Listeleme
+* **API Metodu:** GET /leaderboard
+* **Açıklama:** En çok beğeni toplayan kullanıcıların sıralı listesini sunar.

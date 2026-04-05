@@ -4,40 +4,45 @@ API Test Videosu: [Link buraya eklenecek]
 
 ## 1. Kullanıcı Kayıt Olma
 * **Endpoint:** `POST /auth/register`
-* **Request Body:** `{"fullName": "Ahmet Kağan", "email": "kullanici@example.com", "password": "123"}`
+* **Request Body:** `{"fullName": "Ahmet Kağan", "email": "kullanici@example.com", "password": "123456"}`
 * **Authentication:** Gerekli değil
 * **Response:** `201 Created`
 
-## 2. Profil Bilgilerini Görüntüleme
+## 2. Kullanıcı Giriş Yapma
+* **Endpoint:** `POST /auth/login`
+* **Request Body:** `{"email": "kullanici@example.com", "password": "123456"}`
+* **Authentication:** Gerekli değil
+* **Response:** `200 OK`
+
+## 3. Profil Bilgilerini Görüntüleme
 * **Endpoint:** `GET /profile`
 * **Authentication:** Bearer Token gerekli
 * **Response:** `200 OK`
 
-## 3. Profil Bilgilerini Güncelleme
+## 4. Profil Bilgilerini Güncelleme
 * **Endpoint:** `PUT /profile`
 * **Request Body:** `{"fullName": "Ahmet Kağan Karababa", "password": "Yenisifre123"}`
 * **Authentication:** Bearer Token gerekli
 * **Response:** `200 OK`
 
-## 4. Hesap Silme
+## 5. Hesap Silme
 * **Endpoint:** `DELETE /profile`
 * **Authentication:** Bearer Token gerekli
 * **Response:** `204 No Content`
 
-## 5. Kirli Alan Bildirme
-* **Endpoint:** `POST /pollution-reports`
-* **Request Body:** `{"lat": 37.77, "long": 35.32, "imageUrl": "link.jpg", "description": "Çöp var"}`
+## 6. Gönderi Düzenleme
+* **Endpoint:** `PUT /pollution-reports/{id}`
+* **Content-Type:** `multipart/form-data`
+* **Form Data:**
+  - `image` (file, opsiyonel): Yeni fotoğraf
+  - `description` (text, opsiyonel): Güncellenmiş açıklama
+  - `locationName` (text, opsiyonel): Güncellenmiş konum adı
 * **Authentication:** Bearer Token gerekli
-* **Response:** `201 Created`
-
-## 6. Kirli Alanları Listeleme
-* **Endpoint:** `GET /pollution-reports`
-* **Authentication:** Gerekli değil
 * **Response:** `200 OK`
 
-## 7. Bildirilen Alanı Güncelleme
-* **Endpoint:** `PUT /pollution-reports/{id}`
-* **Request Body:** `{"lat": 37.78, "long": 35.33, "imageUrl": "yenilink.jpg"}`
+## 7. Profil Fotoğrafı Olarak Avatar Seçme
+* **Endpoint:** `PUT /profile`
+* **Request Body:** `{"profilePhoto": "🌿"}`
 * **Authentication:** Bearer Token gerekli
 * **Response:** `200 OK`
 

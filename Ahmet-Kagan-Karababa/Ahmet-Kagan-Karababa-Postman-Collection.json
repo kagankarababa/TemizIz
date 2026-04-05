@@ -1,0 +1,117 @@
+{
+  "info": {
+    "name": "Temizİz - Ahmet Kağan Karababa",
+    "description": "Temizİz projesi kapsamında Ahmet Kağan Karababa'nın sorumlu olduğu REST API metotları test koleksiyonu.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Kullanıcı Kayıt Olma",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fullName\": \"Ahmet Kağan\",\n  \"email\": \"kagan@example.com\",\n  \"password\": \"123456\"\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/auth/register", "host": ["{{baseUrl}}"], "path": ["auth", "register"] }
+      }
+    },
+    {
+      "name": "2. Kullanıcı Giriş Yapma",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"email\": \"kagan@example.com\",\n  \"password\": \"123456\"\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/auth/login", "host": ["{{baseUrl}}"], "path": ["auth", "login"] }
+      }
+    },
+    {
+      "name": "3. Profil Bilgilerini Görüntüleme",
+      "request": {
+        "method": "GET",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{jwtToken}}" }
+        ],
+        "url": { "raw": "{{baseUrl}}/profile", "host": ["{{baseUrl}}"], "path": ["profile"] }
+      }
+    },
+    {
+      "name": "4. Profil Bilgilerini Güncelleme",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{jwtToken}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"fullName\": \"Ahmet Kağan Karababa\",\n  \"password\": \"Yenisifre123\"\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/profile", "host": ["{{baseUrl}}"], "path": ["profile"] }
+      }
+    },
+    {
+      "name": "5. Hesap Silme",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{jwtToken}}" }
+        ],
+        "url": { "raw": "{{baseUrl}}/profile", "host": ["{{baseUrl}}"], "path": ["profile"] }
+      }
+    },
+    {
+      "name": "6. Gönderi Düzenleme",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{jwtToken}}" }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            { "key": "description", "value": "Açıklama güncellendi", "type": "text" },
+            { "key": "locationName", "value": "Konyaaltı, Antalya", "type": "text" }
+          ]
+        },
+        "url": { "raw": "{{baseUrl}}/pollution-reports/{{postId}}", "host": ["{{baseUrl}}"], "path": ["pollution-reports", "{{postId}}"] }
+      }
+    },
+    {
+      "name": "7. Profil Fotoğrafı Olarak Avatar Seçme",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{jwtToken}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"profilePhoto\": \"🌿\"\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/profile", "host": ["{{baseUrl}}"], "path": ["profile"] }
+      }
+    },
+    {
+      "name": "8. Liderlik Tablosunu Listeleme",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": { "raw": "{{baseUrl}}/leaderboard", "host": ["{{baseUrl}}"], "path": ["leaderboard"] }
+      }
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000/v1" },
+    { "key": "jwtToken", "value": "your_token_here" },
+    { "key": "postId", "value": "your_post_id" }
+  ]
+}
