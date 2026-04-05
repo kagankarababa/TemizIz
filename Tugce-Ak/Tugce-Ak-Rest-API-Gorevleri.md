@@ -1,6 +1,6 @@
 # Tuğçe Ak'ın REST API Metotları
 
-API Test Videosu: [Link buraya eklenecek]
+API Test Videosu: https://www.youtube.com/watch?v=-j6ji69Apfo&t=2s
 
 ## 1. Temizlik Fotoğrafı Yükleme
 * **Endpoint:** `POST /clean-reports`
