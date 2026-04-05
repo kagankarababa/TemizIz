@@ -1,6 +1,6 @@
 # Ahmet Kağan Karababa'nın REST API Metotları
 
-API Test Videosu: [Link buraya eklenecek]
+API Test Videosu: https://www.youtube.com/watch?v=g0GWCvaH3x4
 
 ## 1. Kullanıcı Kayıt Olma
 * **Endpoint:** `POST /auth/register`
