@@ -1,8 +1,10 @@
 import axios from 'axios';
 
-// export const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
+// Backend URL (sadece image fallback için)
 export const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://temiz-iz.vercel.app';
-const API_BASE_URL = import.meta.env.VITE_API_URL || `${BACKEND_URL}/v1`;
+
+// API istekleri Vercel proxy üzerinden gider → CORS sorunu olmaz
+const API_BASE_URL = import.meta.env.VITE_API_URL || '/api/v1';
 
 const api = axios.create({
   baseURL: API_BASE_URL,
