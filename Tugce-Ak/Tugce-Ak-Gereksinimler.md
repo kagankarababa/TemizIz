@@ -1,12 +1,41 @@
-# Tuğçe Ak - Gereksinim Analizi
+# Tuğçe Ak'ın Gereksinimleri
 
-Temizİz projesi kapsamında benim sorumluluğumda olan 8 adet fonksiyonel gereksinim aşağıdadır:
+## 1. Temizlik Fotoğrafı Yükleme
+* **API Metodu:** POST /clean-reports
+* **Açıklama:** Kullanıcının temizlediği alanın son halini kanıt olarak sisteme yüklemesini sağlar.
 
-1. **Temizlik Sonrası Fotoğraf Yükleme (Ekle/POST):** Kullanıcının temizlediği alanın son halinin fotoğrafını kanıt olarak sisteme eklemesi.
-2. **Kirli Alanları Listeleme (Listele/GET):** Sistemdeki tüm temizlenmeyi bekleyen kirli alanların kullanıcılar tarafından görülmesi.
-3. **Hatalı Fotoğrafı Silme (Sil/DELETE):** Kullanıcının yanlışlıkla yüklediği bir doğa fotoğrafını sistemden kaldırması.
-4. **Görev Durumunu Güncelleme (Güncelle/PUT):** Bir kirli alanın durumunun "Temizlenmeyi Bekliyor" halinden "Temizlendi" statüsüne geçirilmesi.
-5. **Temizlenen Alana Yorum Yapma (Ekle/POST):** Kullanıcıların başarıyla temizlenmiş bir bölgenin altına tebrik veya bilgi amaçlı mesaj yazması.
-6. **Yorumları Listeleme (Listele/GET):** Temizlenen bir alanın altına yapılan tüm kullanıcı yorumlarının sırasıyla okunabilmesi.
-7. **Uygunsuz Yorumu Silme (Sil/DELETE):** Topluluk kurallarına uymayan veya hakaret içeren bir yorumun sistemden kaldırılması.
-8. **Kullanıcı Puanını Güncelleme (Güncelle/PUT):** Bir alan başarıyla temizlenip onaylandıktan sonra, temizliği yapan kullanıcının toplam puanının artırılması.
+## 2. Gönderi Silme
+* **API Metodu:** DELETE /pollution-reports/:id
+* **Açıklama:** Kullanıcının daha önce paylaştığı bir gönderiyi ilişkili temizlik raporları, yorumlar ve beğenileriyle birlikte kalıcı olarak silmesini sağlar.
+
+## 3. Temizlenen Alana Yorum Yapma
+* **API Metodu:** POST /comments
+* **Açıklama:** Kullanıcıların temizlenmiş bir bölgenin altına bilgi amaçlı mesaj yazmasını sağlar.
+
+## 4. Yorumları Listeleme
+* **API Metodu:** GET /comments/:taskId
+* **Açıklama:** Temizlenen bir alanın altına yapılan tüm kullanıcı yorumlarının okunabilmesini sağlar.
+
+## 5. Yorumu Beğenme
+* **API Metodu:** POST /comments/:id/like
+* **Açıklama:** Kullanıcıların beğendikleri yorumları beğenmesini sağlar.
+
+## 6. Yorum Beğenisini Geri Çekme
+* **API Metodu:** DELETE /comments/:id/like
+* **Açıklama:** Kullanıcının yanlışlıkla veya artık istemediği bir yorum beğenisini geri çekmesini sağlar.
+
+## 7. Yoruma Yanıt Verme
+* **API Metodu:** POST /comments (parentId ile)
+* **Açıklama:** Kullanıcıların mevcut bir yoruma yanıt yazarak iç içe yorum ağacı oluşturmasını sağlar.
+
+## 8. Kullanıcı Puanını Güncelleme
+* **API Metodu:** PUT /users/:id/points
+* **Açıklama:** Alan başarıyla temizlenip onaylandıktan sonra kullanıcının puanının artırılmasını sağlar.
+
+## 9. Gönderiyi Beğenme
+* **API Metodu:** POST /posts/:id/like
+* **Açıklama:** Kullanıcıların beğendikleri temizlik gönderilerini beğenmesini ve böylece gönderi sahibinin liderlik tablosundaki sıralamasına katkı sağlamasını sağlar.
+
+## 10. Beğeniyi Geri Çekme
+* **API Metodu:** DELETE /posts/:id/like
+* **Açıklama:** Kullanıcının yanlışlıkla veya artık istemediği bir beğeniyi geri çekmesini sağlar.
