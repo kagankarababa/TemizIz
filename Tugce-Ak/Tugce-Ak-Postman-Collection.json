@@ -1,0 +1,136 @@
+{
+  "info": {
+    "name": "Temizİz - Tuğçe Ak",
+    "description": "Temizİz projesi kapsamında Tuğçe Ak'ın sorumlu olduğu REST API metotları test koleksiyonu.",
+    "schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+  },
+  "item": [
+    {
+      "name": "1. Temizlik Fotoğrafı Yükleme",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{jwtToken}}" }
+        ],
+        "body": {
+          "mode": "formdata",
+          "formdata": [
+            { "key": "pollutionReportId", "value": "{{postId}}", "type": "text" },
+            { "key": "image", "type": "file", "src": "" }
+          ]
+        },
+        "url": { "raw": "{{baseUrl}}/clean-reports", "host": ["{{baseUrl}}"], "path": ["clean-reports"] }
+      }
+    },
+    {
+      "name": "2. Gönderi Silme",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{jwtToken}}" }
+        ],
+        "url": { "raw": "{{baseUrl}}/pollution-reports/{{postId}}", "host": ["{{baseUrl}}"], "path": ["pollution-reports", "{{postId}}"] }
+      }
+    },
+    {
+      "name": "3. Temizlenen Alana Yorum Yapma",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{jwtToken}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"postId\": \"{{postId}}\",\n  \"text\": \"Harika bir iş çıkarmışsınız!\"\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/comments", "host": ["{{baseUrl}}"], "path": ["comments"] }
+      }
+    },
+    {
+      "name": "4. Yorumları Listeleme",
+      "request": {
+        "method": "GET",
+        "header": [],
+        "url": { "raw": "{{baseUrl}}/comments/{{postId}}", "host": ["{{baseUrl}}"], "path": ["comments", "{{postId}}"] }
+      }
+    },
+    {
+      "name": "5. Yorumu Beğenme",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{jwtToken}}" }
+        ],
+        "url": { "raw": "{{baseUrl}}/comments/{{commentId}}/like", "host": ["{{baseUrl}}"], "path": ["comments", "{{commentId}}", "like"] }
+      }
+    },
+    {
+      "name": "6. Yorum Beğenisini Geri Çekme",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{jwtToken}}" }
+        ],
+        "url": { "raw": "{{baseUrl}}/comments/{{commentId}}/like", "host": ["{{baseUrl}}"], "path": ["comments", "{{commentId}}", "like"] }
+      }
+    },
+    {
+      "name": "7. Yoruma Yanıt Verme",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{jwtToken}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"postId\": \"{{postId}}\",\n  \"text\": \"Katılıyorum, gerçekten harika!\",\n  \"parentId\": \"{{commentId}}\"\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/comments", "host": ["{{baseUrl}}"], "path": ["comments"] }
+      }
+    },
+    {
+      "name": "8. Kullanıcı Puanını Güncelleme",
+      "request": {
+        "method": "PUT",
+        "header": [
+          { "key": "Content-Type", "value": "application/json" },
+          { "key": "Authorization", "value": "Bearer {{jwtToken}}" }
+        ],
+        "body": {
+          "mode": "raw",
+          "raw": "{\n  \"pointsToAdd\": 50\n}"
+        },
+        "url": { "raw": "{{baseUrl}}/users/{{userId}}/points", "host": ["{{baseUrl}}"], "path": ["users", "{{userId}}", "points"] }
+      }
+    },
+    {
+      "name": "9. Gönderiyi Beğenme",
+      "request": {
+        "method": "POST",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{jwtToken}}" }
+        ],
+        "url": { "raw": "{{baseUrl}}/posts/{{postId}}/like", "host": ["{{baseUrl}}"], "path": ["posts", "{{postId}}", "like"] }
+      }
+    },
+    {
+      "name": "10. Beğeniyi Geri Çekme",
+      "request": {
+        "method": "DELETE",
+        "header": [
+          { "key": "Authorization", "value": "Bearer {{jwtToken}}" }
+        ],
+        "url": { "raw": "{{baseUrl}}/posts/{{postId}}/like", "host": ["{{baseUrl}}"], "path": ["posts", "{{postId}}", "like"] }
+      }
+    }
+  ],
+  "variable": [
+    { "key": "baseUrl", "value": "http://localhost:3000/v1" },
+    { "key": "jwtToken", "value": "your_token_here" },
+    { "key": "postId", "value": "your_post_id" },
+    { "key": "commentId", "value": "your_comment_id" },
+    { "key": "userId", "value": "your_user_id" }
+  ]
+}
