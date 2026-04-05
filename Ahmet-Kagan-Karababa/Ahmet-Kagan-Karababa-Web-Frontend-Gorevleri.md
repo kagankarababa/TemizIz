@@ -1,5 +1,7 @@
 # Ahmet Kağan Karababa'nın Web Frontend Görevleri
 
+Front-End Test videosu: https://www.youtube.com/watch?v=l_Cx_FxLJPU
+
 ## 1. Kayıt Sayfası (Register)
 * **Dosya:** `frontend/src/pages/Register.jsx`
 * **Açıklama:** Kullanıcıların ad-soyad, e-posta ve şifre bilgileriyle yeni hesap oluşturmasını sağlayan sayfa.
