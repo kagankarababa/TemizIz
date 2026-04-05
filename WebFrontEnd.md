@@ -1,6 +1,6 @@
 # Web Frontend Görev Dağılımı
 
-Frontend Deploy Adresi: [Deploy sonrası eklenecek]
+Frontend Deploy Adresi: https://temiz-iz-w1un.vercel.app/
 
 Bu dokümanda, proje ekibindeki her üyenin geliştirmekten sorumlu olduğu web frontend sayfaları ve bileşenleri listelenmektedir.
 
