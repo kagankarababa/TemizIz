@@ -17,13 +17,19 @@ const likeRoutes = require('../routes/likeRoutes');
 
 const app = express();
 
-// Middleware
+// CORS Middleware - EN ÜSTTE olmalı
 app.use(cors({
   origin: '*',
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS', 'PATCH'],
   allowedHeaders: ['Content-Type', 'Authorization', 'X-Requested-With', 'Accept'],
-  credentials: true
+  credentials: false
 }));
+
+// Preflight (OPTIONS) isteklerini hemen cevapla - DB bağlantısına gerek yok
+app.options('*', (req, res) => {
+  res.status(200).end();
+});
+
 app.use(express.json());
 
 // MongoDB bağlantısı için middleware (Serverless uyumlu)
