@@ -25,6 +25,14 @@ app.use(express.json());
 connectDB();
 
 // Ana route
+app.get('/', (req, res) => {
+  res.json({
+    message: 'Temizİz API - Doğayı Koru, İzini Temiz Bırak! 🌿',
+    version: '1.0.0',
+    docs: '/v1'
+  });
+});
+
 app.get('/v1', (req, res) => {
   res.json({
     message: 'Temizİz API - Doğayı Koru, İzini Temiz Bırak! 🌿',

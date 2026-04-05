@@ -1,6 +1,7 @@
 import axios from 'axios';
 
-export const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
+// export const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'http://localhost:3000';
+export const BACKEND_URL = import.meta.env.VITE_BACKEND_URL || 'https://temiz-iz.vercel.app';
 const API_BASE_URL = import.meta.env.VITE_API_URL || `${BACKEND_URL}/v1`;
 
 const api = axios.create({
