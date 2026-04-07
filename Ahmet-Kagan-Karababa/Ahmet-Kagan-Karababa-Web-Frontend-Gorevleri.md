@@ -1,6 +1,6 @@
 # Ahmet Kağan Karababa'nın Web Frontend Görevleri
 
-Front-End Test videosu: https://www.youtube.com/watch?v=l_Cx_FxLJPU
+Front-End Test videosu :
 
 ## 1. Kayıt Sayfası (Register)
 * **Dosya:** `frontend/src/pages/Register.jsx`
