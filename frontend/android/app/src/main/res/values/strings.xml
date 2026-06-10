@@ -1,0 +1,7 @@
+<?xml version='1.0' encoding='utf-8'?>
+<resources>
+    <string name="app_name">TemizIz</string>
+    <string name="title_activity_main">TemizIz</string>
+    <string name="package_name">com.temiziz.app</string>
+    <string name="custom_url_scheme">com.temiziz.app</string>
+</resources>

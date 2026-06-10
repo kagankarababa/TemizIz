@@ -1,0 +1,12 @@
+{
+  "appId": "com.temiziz.app",
+  "appName": "TemizIz",
+  "webDir": "dist",
+  "server": {
+    "androidScheme": "https",
+    "allowNavigation": ["temiz-iz.vercel.app"]
+  },
+  "android": {
+    "allowMixedContent": true
+  }
+}

@@ -1,6 +1,9 @@
 require('dotenv').config();
 const express = require('express');
 const connectDB = require('../config/db');
+const { connectRabbitMQ } = require('../config/rabbitmqClient');
+const { startConsumer } = require('../services/notificationConsumer');
+const { getRedisClient } = require('../config/redisClient');
 
 // Route imports
 const authRoutes = require('../routes/authRoutes');
@@ -90,6 +93,49 @@ app.use('/v1/leaderboard', leaderboardRoutes);
 app.use('/v1/reports', abuseRoutes);
 app.use('/v1/posts', likeRoutes);
 
+// Health check endpoint
+app.get('/v1/health', async (req, res) => {
+  const health = {
+    status: 'ok',
+    timestamp: new Date().toISOString(),
+    services: {
+      mongodb: 'disconnected',
+      redis: 'disconnected',
+      rabbitmq: 'disconnected'
+    }
+  };
+
+  try {
+    const mongoose = require('mongoose');
+    if (mongoose.connection.readyState === 1) {
+      health.services.mongodb = 'connected';
+    }
+  } catch (err) {
+    health.services.mongodb = 'error';
+  }
+
+  try {
+    const redisClient = getRedisClient();
+    if (redisClient && redisClient.status === 'ready') {
+      health.services.redis = 'connected';
+    }
+  } catch (err) {
+    health.services.redis = 'error';
+  }
+
+  try {
+    const { getChannel } = require('../config/rabbitmqClient');
+    if (getChannel()) {
+      health.services.rabbitmq = 'connected';
+    }
+  } catch (err) {
+    health.services.rabbitmq = 'error';
+  }
+
+  const allConnected = Object.values(health.services).every(s => s === 'connected');
+  res.status(allConnected ? 200 : 503).json(health);
+});
+
 // 404 handler
 app.use((req, res) => {
   res.status(404).json({ message: 'İstenen kaynak bulunamadı.' });
@@ -103,11 +149,14 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 3000;
 
-if (process.env.NODE_ENV !== 'production') {
-  app.listen(PORT, () => {
-    console.log(`Temizİz API ${PORT} portunda çalışıyor 🌿`);
-  });
-}
+app.listen(PORT, () => {
+  console.log(`Temizİz API ${PORT} portunda çalışıyor 🌿`);
+});
+
+// RabbitMQ ve Consumer başlatma
+connectRabbitMQ()
+  .then(() => startConsumer())
+  .catch(err => console.error('RabbitMQ başlatma hatası:', err.message));
 
 module.exports = app;
 

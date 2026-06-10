@@ -34,7 +34,12 @@ export function AuthProvider({ children }) {
     return userData;
   };
 
-  const logout = () => {
+  const logout = async () => {
+    try {
+      await api.post('/auth/logout');
+    } catch (err) {
+      console.error('Logout hatası:', err);
+    }
     localStorage.removeItem('token');
     localStorage.removeItem('user');
     setUser(null);

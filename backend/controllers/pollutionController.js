@@ -2,6 +2,7 @@ const PollutionReport = require('../models/PollutionReport');
 const CleanReport = require('../models/CleanReport');
 const Comment = require('../models/Comment');
 const Like = require('../models/Like');
+const { sendNotification } = require('../services/notificationProducer');
 
 // GET /pollution-reports
 const getPollutionReports = async (req, res) => {
@@ -41,6 +42,14 @@ const createPollutionReport = async (req, res) => {
       imageUrl,
       description: description || '',
       locationName: locationName || ''
+    });
+
+    // RabbitMQ bildirim gönder
+    await sendNotification({
+      type: 'pollution_report',
+      message: `Yeni kirlilik bildirimi oluşturuldu: ${description || 'Açıklama yok'}`,
+      userId: req.user._id,
+      relatedId: report._id
     });
 
     res.status(201).json(report);
