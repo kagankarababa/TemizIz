@@ -132,8 +132,9 @@ app.get('/v1/health', async (req, res) => {
     health.services.rabbitmq = 'error';
   }
 
-  const allConnected = Object.values(health.services).every(s => s === 'connected');
-  res.status(allConnected ? 200 : 503).json(health);
+  // MongoDB bağlı olması yeterli (Redis/RabbitMQ opsiyonel — Vercel'de yoklar)
+  const isHealthy = health.services.mongodb === 'connected';
+  res.status(isHealthy ? 200 : 503).json(health);
 });
 
 // 404 handler
@@ -149,9 +150,13 @@ app.use((err, req, res, next) => {
 
 const PORT = process.env.PORT || 3000;
 
-app.listen(PORT, () => {
-  console.log(`Temizİz API ${PORT} portunda çalışıyor 🌿`);
-});
+// Vercel serverless ortamında listen() çağırma
+// Docker ortamında ise normal şekilde çalıştır
+if (!process.env.VERCEL) {
+  app.listen(PORT, () => {
+    console.log(`Temizİz API ${PORT} portunda çalışıyor 🌿`);
+  });
+}
 
 // RabbitMQ ve Consumer başlatma
 connectRabbitMQ()

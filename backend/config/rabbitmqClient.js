@@ -1,14 +1,20 @@
 const amqp = require('amqplib');
 
 const NOTIFICATION_QUEUE = 'temiziz_notifications';
-const RABBITMQ_URL = process.env.RABBITMQ_URL || 'amqp://localhost:5672';
-const MAX_RETRIES = 5;
+const RABBITMQ_URL = process.env.RABBITMQ_URL;
+const MAX_RETRIES = 3;
 const RETRY_INTERVAL = 5000;
 
 let channel = null;
 let connection = null;
 
 async function connectRabbitMQ() {
+  // RABBITMQ_URL tanımlı değilse bağlanma (Vercel modu)
+  if (!RABBITMQ_URL) {
+    console.log('[RabbitMQ] RABBITMQ_URL tanımlı değil, RabbitMQ devre dışı (Vercel modu).');
+    return null;
+  }
+
   for (let attempt = 1; attempt <= MAX_RETRIES; attempt++) {
     try {
       console.log(`[RabbitMQ] Bağlantı deneniyor... (Deneme ${attempt}/${MAX_RETRIES})`);
