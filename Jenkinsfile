@@ -48,8 +48,8 @@ pipeline {
         stage('Health Check') {
             steps {
                 sh 'sleep 20'
-                sh 'curl -f http://localhost:3000/v1/health || exit 1'
-                sh 'curl -f http://localhost:5173 || exit 1'
+                sh 'curl -f http://host.docker.internal:3000/v1/health || exit 1'
+                sh 'curl -f http://host.docker.internal:5173 || exit 1'
                 echo 'Sağlık kontrolleri başarılı!'
             }
         }
