@@ -74,4 +74,29 @@ const login = async (req, res) => {
   }
 };
 
-module.exports = { register, login };
+// POST /auth/logout
+const logout = async (req, res) => {
+  try {
+    const authHeader = req.headers.authorization;
+    if (!authHeader || !authHeader.startsWith('Bearer ')) {
+      return res.status(400).json({ message: 'Token bulunamadı.' });
+    }
+
+    const token = authHeader.split(' ')[1];
+    const decoded = jwt.decode(token);
+    
+    if (decoded && decoded.exp) {
+      const { cacheSet } = require('../config/redisClient');
+      const ttl = decoded.exp - Math.floor(Date.now() / 1000);
+      if (ttl > 0) {
+        await cacheSet(`bl_${token}`, 'true', ttl);
+      }
+    }
+
+    res.status(200).json({ message: 'Başarıyla çıkış yapıldı.' });
+  } catch (error) {
+    res.status(500).json({ message: 'Sunucu hatası.', error: error.message });
+  }
+};
+
+module.exports = { register, login, logout };

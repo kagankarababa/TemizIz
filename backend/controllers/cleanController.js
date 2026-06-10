@@ -1,5 +1,6 @@
 const CleanReport = require('../models/CleanReport');
 const PollutionReport = require('../models/PollutionReport');
+const { sendNotification } = require('../services/notificationProducer');
 
 // POST /clean-reports (file upload)
 const createCleanReport = async (req, res) => {
@@ -30,6 +31,14 @@ const createCleanReport = async (req, res) => {
 
     pollutionReport.status = 'Temizlendi';
     await pollutionReport.save();
+
+    // RabbitMQ bildirim gönder
+    await sendNotification({
+      type: 'clean_report',
+      message: `Temizlik raporu oluşturuldu`,
+      userId: req.user._id,
+      relatedId: cleanReport._id
+    });
 
     res.status(201).json(cleanReport);
   } catch (error) {
